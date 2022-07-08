@@ -5,4 +5,4 @@ root = Blueprint('api', __name__, url_prefix="/")
 
 @root.route("/")
 def index():
-    return "Hello Palencassss!"
+    return "Hello Palenca!"

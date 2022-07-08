@@ -23,6 +23,20 @@ def login():
         return {"message": message, "details": details}
 
     message = "SUCCESS"
-    access_token = auth_service.getToken()
+    access_token = auth_service.get_token()
 
     return {"message": message, "access_token": access_token}
+
+
+@uber.route("/profile/<string:token>")
+def profile(token):
+    auth_service = AuthService()
+
+    if not auth_service.check_token(token):
+        message = 'CREDENTIALS_INVALID'
+        details = 'Incorrect token'
+        return {"message": message, "details": details}
+
+    message = "SUCCESS"
+    profile = auth_service.get_profile()
+    return {"message": message, "profile": profile}
