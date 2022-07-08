@@ -6,6 +6,9 @@ def application():
 
     # Import blueprints
     from app.routes.root import root
+    from app.routes.uber import uber
+
     app.register_blueprint(root)
+    app.register_blueprint(uber)
 
     return app
